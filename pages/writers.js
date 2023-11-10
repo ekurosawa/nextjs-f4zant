@@ -72,7 +72,7 @@ export default function writers({ allPostsData }) {
                                                 <CardMedia
                                                     component="img"
                                                     sx={{ width: 400, display: { xs: 'none', sm: 'block' } }}
-                                                    image=""
+                                                    image="#"
                                                     alt="writer art"
                                                 />
                                                 <Box px={3} >
