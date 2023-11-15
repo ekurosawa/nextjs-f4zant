@@ -43,6 +43,10 @@ p {
   text-indent: 1rem;
 }
 
+.appbar {
+  background-color: #1a1a1a;
+}
+
 .footer {
   background-color: #1a1a1a;
   height: 120px;

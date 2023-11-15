@@ -5,6 +5,7 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
+
 import Grid from '@mui/material/Unstable_Grid2';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -59,17 +60,13 @@ const sidebar = {
   ],
 };
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+const darkTheme = createTheme();
 
 export default function Home({ allPostsData }) {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <sampleComponent />
+   
       
       <link rel="icon" href='/images/nakazuba40white.png' />
 

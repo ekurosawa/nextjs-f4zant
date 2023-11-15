@@ -54,3 +54,13 @@
 .indent {
   text-indent: 1rem;
 }
+
+.footer {
+  background-color: #1a1a1a;
+  height: 120px;
+  
+}
+
+.card {
+  background-color: aliceblue;
+}

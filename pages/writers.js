@@ -5,6 +5,8 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
+import styles from '../styles/utils.module.css'
+
 import Grid from '@mui/material/Unstable_Grid2';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -59,17 +61,13 @@ const writerData = [
 
 
 
-const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
-    },
-});
+const darkTheme = createTheme();
 
 export default function writers() {
 
     return (
         <>
-            <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
                 <CssBaseline />
                 <link rel="icon" href='/images/nakazuba40white.png' />
 
@@ -101,7 +99,7 @@ export default function writers() {
                                 {writerData.map(({ wart, wname, intro }, index) => (
                                     <Grid item key={index} xs={12} sm={6} md={6}>
                                         <Card
-                                            className='card'
+                                            className="card"
                                             py={3} sx={{ display: 'flex', flexDirection: 'column' }} >
                                             <CardContent sx={{ flex: '10 auto' }} >
                                                 <Box display="flex">
