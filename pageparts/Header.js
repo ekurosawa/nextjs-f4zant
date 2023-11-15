@@ -23,7 +23,7 @@ function Header(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
-        className={styles.appbar}
+        className="appbar"
         elevation={1}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
