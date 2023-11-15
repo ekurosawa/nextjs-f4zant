@@ -8,7 +8,7 @@ import Link from '@mui/material/Link';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="white">
       {' © '}
       {new Date().getFullYear()}
       {'  '}
@@ -25,12 +25,13 @@ const defaultTheme = createTheme();
 
 export default function Footer() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-
+    <ThemeProvider  theme={defaultTheme}>
       <CssBaseline />
-      <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
+      
+      <Container  component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
       </Container>
       <Box
+        className='footer'
         component="footer"
         sx={{
           py: 3,
@@ -43,8 +44,7 @@ export default function Footer() {
         }}
       >
         <Container maxWidth="sm">
-          <Typography variant="body1">
-
+          <Typography color="white" variant="body1">
             Nakazuba
           </Typography>
           <Copyright />

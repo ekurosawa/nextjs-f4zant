@@ -15,7 +15,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
 import Container from '@mui/material/Container';
 
 import Header from '../pageparts/Header';
@@ -26,6 +28,7 @@ import Footer from '../pageparts/Footer';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
+
 
 const posts = ['   '];
 
@@ -56,12 +59,18 @@ const sidebar = {
   ],
 };
 
-const defaultTheme = createTheme();
-
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function Home({ allPostsData }) {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <sampleComponent />
+      
       <link rel="icon" href='/images/nakazuba40white.png' />
 
       <Header >
@@ -77,7 +86,7 @@ export default function Home({ allPostsData }) {
               <FeaturedPost key={post.title} post={post} />
             ))}*/}
         </Grid>
-        <Grid container py={2} spacing={5} sx={{ mt: 3 }}>
+        <Grid container py={4} spacing={5} sx={{ mt: 3 }}>
 
           <Container maxWidth="lg">
             <Typography
@@ -96,6 +105,7 @@ export default function Home({ allPostsData }) {
               {allPostsData.map(({ id, date, title, writer, thumbNa }, card, index) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card
+                    className='card'
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                   >
                     <CardMedia
@@ -110,12 +120,10 @@ export default function Home({ allPostsData }) {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Box justifyContent="space-between" display="flex">
-                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                          <small className={utilStyles.lightText}>
+                        <Typography className={utilStyles.lightText} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                             {date}
-                          </small>
                         </Typography>
-                        <Typography sx={{ fontSize: 12 }} color="text.secondary" >
+                        <Typography  className={utilStyles.lightText} sx={{ fontSize: 12 }} color="text.secondary" >
                           {writer}
                         </Typography>
                       </Box>
@@ -143,12 +151,11 @@ export default function Home({ allPostsData }) {
       />
 
 
-      <Footer>
-
-      </Footer>
+      <Footer className="footer"></Footer>
     </ThemeProvider>
   );
 }
+
 
 function Copyright() {
   return (

@@ -12,6 +12,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import CssBaseline from "@mui/material/CssBaseline";
+
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -29,32 +31,46 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 const writerData = [
     {
-        wart:  '/images/nakazuba640.png',
+        wart: '/images/itiroshirota.png',
+        wname: '白田 一郎',
+        intro: '管理'
+    },
+    {
+        wart: '/images/nakazuba640.png',
         wname: '柿本 建',
-        intro: 'hogehogehogehogehogehogehoge'
+        intro: `管理, エンジニア`
     },
     {
-        wart:  '/images/flowerncafe.png',
+        wart: '/images/flowerncafe.png',
         wname: '英 世志香',
-        intro: 'hugehugehugehugehugehugehuge'
+        intro: '事務, デザイナー'
     },
     {
-        wart:  '/images/hitoriTravel.png',
+        wart: '/images/hitoriTravel.png',
         wname: '乾 洋典',
-        intro: 'tekatekatekatekatekatekateka'
+        intro: '事務'
+    },
+    {
+        wart: '/images/ekurosawa.png',
+        wname: '黒澤 愛理',
+        intro: '事務'
     },
 ];
 
 
 
-const defaultTheme = createTheme();
-
+const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
 
 export default function writers() {
 
     return (
         <>
-            <ThemeProvider theme={defaultTheme}>
+            <ThemeProvider theme={darkTheme}>
+                <CssBaseline />
                 <link rel="icon" href='/images/nakazuba40white.png' />
 
                 <Header >
@@ -67,8 +83,7 @@ export default function writers() {
                 <main>
 
 
-                    <Grid container py={2} spacing={5} sx={{ mt: 3 }}>
-
+                    <Grid container spacing={5} sx={{ mt: 3 }}>
                         <Container maxWidth="lg">
                             <Typography
                                 component="h1"
@@ -77,36 +92,40 @@ export default function writers() {
                                 color="text.primary"
                                 gutterBottom
                             >
-                                writers
-                            </Typography>
+                                Writers
+                            </Typography >
                             <Grid
-                                container spacing={8} // containe spacing : アイテム幅の調整
+                                container spacing={4} // containe spacing : アイテム幅の調整
                             >
 
-                                {writerData.map(({wart, wname, intro}, index) => (
-                                    <Grid item key={index} xs={12} sm={12} md={12}>
+                                {writerData.map(({ wart, wname, intro }, index) => (
+                                    <Grid item key={index} xs={12} sm={6} md={6}>
                                         <Card
-                                            py={3} sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} color='inherit'>
-                                            <CardContent sx={{ flexGrow: 1 }} >
+                                            className='card'
+                                            py={3} sx={{ display: 'flex', flexDirection: 'column' }} >
+                                            <CardContent sx={{ flex: '10 auto' }} >
                                                 <Box display="flex">
                                                     <CardMedia
                                                         component="img"
-                                                        sx={{ width: 400, display: { xs: 'none', sm: 'block' } }}
+                                                        sx={{ width: 151 }}
                                                         image={wart}
                                                         alt="writer art"
                                                     />
-                                                    <Box px={3} color='inherit'>
-                                                        <Typography>
+                                                    <Box px={2} color='inherit'>
+
+                                                        <Typography color="black" fontFamily="Helvetica Neue" >
                                                             {wname}
                                                         </Typography>
-                                                        <Typography>
-                                                            {intro}
-                                                        </Typography>
+
+                                                        <Box display="flex" justifyContent="flex-start">
+                                                            <Typography color="black" sx={{ whiteSpace: 'pre-line' }} fontSize={11} >
+                                                                {intro}
+                                                            </Typography>
+                                                        </Box>
                                                     </Box>
                                                 </Box>
                                             </CardContent>
                                         </Card>
-                                        
                                     </Grid>
                                 ))}
                             </Grid>
@@ -152,5 +171,4 @@ export async function getStaticProps() {
                   <br />
                   {'"a benevolent smile"'}
                   </Typography>*/}
-
 

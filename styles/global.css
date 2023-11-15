@@ -14,8 +14,11 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
+    
   line-height: 1.6;
   font-size: 18px;
+  background-color: #333333;
+
 }
 
 * {
@@ -38,4 +41,14 @@ img {
 
 p {
   text-indent: 1rem;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  height: 120px;
+  
+}
+
+.card {
+  background-color: aliceblue;
 }
