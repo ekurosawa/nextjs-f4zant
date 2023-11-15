@@ -9,7 +9,7 @@ import Link from '@mui/material/Link';
 
 import AppBar from '@mui/material/AppBar';
 import GlobalStyles from '@mui/material/GlobalStyles';
-
+import styles from "../styles/utils.module.css"
 import CssBaseline from '@mui/material/CssBaseline';
 
 
@@ -23,7 +23,7 @@ function Header(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
-        className='appbar'
+        className={styles.appbar}
         elevation={1}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
