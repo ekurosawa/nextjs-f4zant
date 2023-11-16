@@ -5,7 +5,6 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
-
 import Grid from '@mui/material/Unstable_Grid2';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -34,7 +33,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 const posts = ['   '];
 
 const sections = [
-  { title: 'Technology', url: '#' },
+  
   { title: 'Design', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
@@ -60,38 +59,32 @@ const sidebar = {
   ],
 };
 
-const darkTheme = createTheme();
+const defaultTheme = createTheme();
 
 export default function Home({ allPostsData }) {
   return (
-    <ThemeProvider theme={darkTheme}>
-   
-      
+    <ThemeProvider theme={defaultTheme}>
+      <CssBaseline />
+      <Container fixed style={{ backgroundColor: "#3d3d3d"}}>
       <link rel="icon" href='/images/nakazuba40white.png' />
 
-      <Header >
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Header>
+      <Header></Header>
 
       <Main></Main>
-
-      <main>
         {/*<MainFeaturedPost post={mainFeaturedPost} />*/}
-        <Grid container spacing={4}>
-          {/*{featuredPosts.map((post) => (
+        {/*<Grid container spacing={5} sx={{ mt: 3}}>
+          {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
-            ))}*/}
-        </Grid>
-        <Grid container py={4} spacing={5} sx={{ mt: 3 }}>
-
-          <Container maxWidth="lg">
+            ))}
+          </Grid>*/}
+        <Grid container spacing={5} sx={{ mt: 3 }}>
+          <Container>
             <Typography
               component="h1"
               variant="h4"
               align="center"
-              color="text.primary"
-              gutterBottom
-            >
+              sx={{ color: "aliceblue" }}
+              >
               Articles
             </Typography>
             <Grid
@@ -101,7 +94,7 @@ export default function Home({ allPostsData }) {
               {allPostsData.map(({ id, date, title, writer, thumbNa }, card, index) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card
-                    className='card'
+                    style={{ color: "aliceblue" }}
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                   >
                     <CardMedia
@@ -116,28 +109,30 @@ export default function Home({ allPostsData }) {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Box justifyContent="space-between" display="flex">
-                        <Typography className={utilStyles.lightText} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {date}
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                          {date}
                         </Typography>
-                        <Typography  className={utilStyles.lightText} sx={{ fontSize: 12 }} color="text.secondary" >
+                        <Typography sx={{ fontSize: 12 }} color="text.secondary" >
                           {writer}
                         </Typography>
                       </Box>
                         {/*be{bull}nev{bull}o{bull}lent*/}
-                        <Link href={`/posts/${id}`} color="inherit">{title}</Link>
+                        <Link 
+                          style={{ color: "#333333" }}
+                          href={`/posts/${id}`} color="inherit">
+                          {title}
+                        </Link>
                         <br />
                     </CardContent>
                   </Card>
                 </Grid>
               ))}
-              {/*</ul>*/}
             </Grid>
 
 
           </Container>
 
         </Grid>
-      </main>
 
       <Sidebar
         title={sidebar.title}
@@ -146,8 +141,10 @@ export default function Home({ allPostsData }) {
         social={sidebar.social}
       />
 
+</Container>
 
-      <Footer className="footer"></Footer>
+      <Footer></Footer>
+      
     </ThemeProvider>
   );
 }

@@ -5,8 +5,6 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
-import styles from '../styles/utils.module.css'
-
 import Grid from '@mui/material/Unstable_Grid2';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -66,20 +64,16 @@ const darkTheme = createTheme();
 export default function writers() {
 
     return (
-        <>
-    <ThemeProvider theme={darkTheme}>
+            <ThemeProvider theme={darkTheme}>
                 <CssBaseline />
+                <Container fixed style={{ backgroundColor: "#3d3d3d"}}>
                 <link rel="icon" href='/images/nakazuba40white.png' />
 
                 <Header >
                     <meta name="viewport" content="initial-scale=1, width=device-width" />
                 </Header>
 
-                <Main>
-                </Main>
-
-                <main>
-
+                <Main></Main>
 
                     <Grid container spacing={5} sx={{ mt: 3 }}>
                         <Container maxWidth="lg">
@@ -89,7 +83,8 @@ export default function writers() {
                                 align="center"
                                 color="text.primary"
                                 gutterBottom
-                            >
+                                sx={{ color: "aliceblue" }}
+                                >
                                 Writers
                             </Typography >
                             <Grid
@@ -97,9 +92,9 @@ export default function writers() {
                             >
 
                                 {writerData.map(({ wart, wname, intro }, index) => (
-                                    <Grid item key={index} xs={12} sm={6} md={6}>
+                                    <Grid item key={index} xs={12} sm={6} md={4}>
                                         <Card
-                                            className="card"
+                                            className='card'
                                             py={3} sx={{ display: 'flex', flexDirection: 'column' }} >
                                             <CardContent sx={{ flex: '10 auto' }} >
                                                 <Box display="flex">
@@ -111,7 +106,7 @@ export default function writers() {
                                                     />
                                                     <Box px={2} color='inherit'>
 
-                                                        <Typography color="black" fontFamily="Helvetica Neue" >
+                                                        <Typography color="black" fontFamily="sans-serif" fontWeight="Bold" >
                                                             {wname}
                                                         </Typography>
 
@@ -130,13 +125,11 @@ export default function writers() {
                         </Container>
 
                     </Grid>
-                </main>
+                    </Container>
 
-                <Footer>
+                <Footer></Footer>
 
-                </Footer>
             </ThemeProvider>
-        </>
     );
 }
 
@@ -169,4 +162,5 @@ export async function getStaticProps() {
                   <br />
                   {'"a benevolent smile"'}
                   </Typography>*/}
+
 

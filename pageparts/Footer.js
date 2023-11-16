@@ -28,7 +28,7 @@ export default function Footer() {
     <ThemeProvider  theme={defaultTheme}>
       <CssBaseline />
       
-      <Container  component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
+      <Container  component="fdoter" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
       </Container>
       <Box
         className='footer'
