@@ -99,7 +99,7 @@ export default function Home({ allPostsData }) {
               {allPostsData.map(({ id, date, title, writer, thumbNa }, card, index) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card
-                    style={{ backgroundColor: "aliceblue" }}
+                    style={{ backgroundColor: "#ffeeff" }}
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                   >
                     <CardMedia
