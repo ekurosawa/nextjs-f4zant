@@ -9,3 +9,5 @@ Module not found: Can't resolve '@/components/MediaCard'
 
 【個人開発/未経験】エモさたっぷりプロフィール帳アプリ開発して ...
 https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiKkMjKv7qCAxVZbfUHHeUzBcIQFnoECBAQAQ&url=https%3A%2F%2Fqiita.com%2Fmitsu30%2Fitems%2F9d30da75941e328b541f&usg=AOvVaw1yE99TcCAHcEKi3pw0cHF_&opi=89978449
+
+https://blog.codecamp.jp/margin_padding

@@ -66,22 +66,21 @@ export default function writers() {
     return (
         <ThemeProvider theme={darkTheme}>
             <CssBaseline />
-            <Container fixed style={{ backgroundColor: "#3d3d3d" }}>
+            
+            <Container fixed style={{ backgroundColor: "aliceblue", minHeight: "100vh" }}>
                 <link rel="icon" href='/images/nakazuba40white.png' />
 
-                <Header >
-                    <meta name="viewport" content="initial-scale=1, width=device-width" />
-                </Header>
+                <Header></Header>
 
                 <Main></Main>
 
-                <Grid container item spacing={5} sx={{ mt: 3, py: 6 }}>
+                <Grid container item spacing={5} sx={{ mt: 2 }}>
                     <Container maxWidth="lg">
                         <Typography
                             component="h1"
                             variant="h4"
                             align="center"
-                            sx={{ color: "aliceblue" }}
+                            sx={{ color: "#1a1a1a", mb: 1 }}
                         >
                             Writers
                         </Typography >
@@ -102,11 +101,11 @@ export default function writers() {
                                                     alt="writer art"
                                                 />
                                                 <Box px={2} color='inherit'>
-                                                    <Typography color="black" fontFamily="sans-serif" fontWeight="Bold" >
+                                                    <Typography color="#1a1a1a" fontFamily="sans-serif" fontWeight="Bold" >
                                                         {wname}
                                                     </Typography>
                                                     <Box display="flex" justifyContent="flex-start">
-                                                        <Typography color="black" sx={{ whiteSpace: 'pre-line' }} fontSize={11} >
+                                                        <Typography color="#1a1a1a" sx={{ whiteSpace: 'pre-line' }} fontSize={11} >
                                                             {intro}
                                                         </Typography>
                                                     </Box>

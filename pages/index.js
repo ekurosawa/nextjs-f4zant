@@ -59,13 +59,18 @@ const sidebar = {
   ],
 };
 
-const defaultTheme = createTheme();
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function Home({ allPostsData }) {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Container fixed style={{ backgroundColor: "#3d3d3d" }}>
+      
+      <Container fixed style={{ backgroundColor: "aliceblue", marginBottom: "0" }}>
         <link rel="icon" href='/images/nakazuba40white.png' />
 
         <Header></Header>
@@ -77,13 +82,14 @@ export default function Home({ allPostsData }) {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>*/}
-        <Grid container spacing={5} sx={{ mt: 3 }}>
+        <Grid container spacing={5} sx={{ mt: 2  }}>
           <Container maxWidth="lg">
             <Typography
               component="h1"
               variant="h4"
               align="center"
-              sx={{ color: "aliceblue" }}
+              sx={{ color: "#1a1a1a", mb: 1 }}
+
             >
               Articles
             </Typography>
@@ -93,7 +99,7 @@ export default function Home({ allPostsData }) {
               {allPostsData.map(({ id, date, title, writer, thumbNa }, card, index) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card
-                    style={{ color: "aliceblue" }}
+                    style={{ backgroundColor: "aliceblue" }}
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                   >
                     <CardMedia
@@ -101,6 +107,7 @@ export default function Home({ allPostsData }) {
                       sx={{
                         // 16:9
                         pt: '56.25%',
+                        backgroundColor: "#FFFFFF"
                       }}
                       image={thumbNa}
                       alt="image"
@@ -108,16 +115,16 @@ export default function Home({ allPostsData }) {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Box justifyContent="space-between" display="flex">
-                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        <Typography sx={{ fontSize: 14, color: "#1a1a1a" }} color="text.secondary" gutterBottom>
                           {date}
                         </Typography>
-                        <Typography sx={{ fontSize: 12 }} color="text.secondary" >
+                        <Typography sx={{ fontSize: 12, color: "#1a1a1a" }} color="text.secondary" >
                           {writer}
                         </Typography>
                       </Box>
                       {/*be{bull}nev{bull}o{bull}lent*/}
                       <Link
-                        style={{ color: "#333333" }}
+                        style={{ color: "#1a1a1a", textDecoration: 'none' }}
                         href={`/posts/${id}`} color="inherit">
                         {title}
                       </Link>

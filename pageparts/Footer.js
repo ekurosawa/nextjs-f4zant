@@ -26,24 +26,34 @@ const defaultTheme = createTheme();
 export default function Footer() {
   return (
     <ThemeProvider theme={defaultTheme}>
-
-        <CssBaseline />
-
+      <CssBaseline />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          position: "sticky",   
+        }}
+      >
+        <Container component="fdoter" sx={{ mt: 0, mb: 0 }} maxWidth="sm">
+        </Container>
         <Box
+
           component="footer"
           sx={{
             py: 3,
             px: 2,
             mt: 'auto',
-            backgroundColor: "#1a1a1a"
+            backgroundColor: "#1a1a1a",
+            position: "sticky",
           }}
         >
           <Container maxWidth="sm">
-            <Typography sx={{color: "aliceblue"}} variant="body1">
-Nakazuba
+            <Typography sx={{ color: "aliceblue"}} variant="body1">
+              Nakazuba
             </Typography>
             <Copyright />
           </Container>
+        </Box>
       </Box>
     </ThemeProvider>
   );

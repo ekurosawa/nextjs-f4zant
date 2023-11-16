@@ -29,18 +29,18 @@ function Sidebar(props) {
         <Typography>{sidebar.description}</Typography>
         </Paper>*/}
 
-        <Typography color="text.primary" variant="h6" gutterBottom sx={{ mt: 3, color: "aliceblue" }}>
+        <Typography color="text.primary" variant="h6" gutterBottom sx={{ mt: 3, color: "#1a1a1a" }}>
           Archives
         </Typography>
 
 
         {archives.map(({ archive, title, url },) => (
-          <Link display="block" variant="body1" href={archives.url} key={title} style={{ textDecoration: 'none' }}>
+          <Link display="block" variant="body1" href={archives.url} key={title} style={{ color: "#1a1a1a", textDecoration: 'none' }}>
             {title}
           </Link>
         ))}
 
-        <Typography color="text.primary" variant="h6" gutterBottom sx={{ mt: 3, color: "aliceblue" }}>
+        <Typography color="text.primary" variant="h6" gutterBottom sx={{ mt: 3, color: "#1a1a1a" }}>
           Social
         </Typography>
 
@@ -52,7 +52,7 @@ function Sidebar(props) {
             href="#"
             key={network.name}
             sx={{ mb: 0.5 }}
-            style={{ textDecoration: 'none' }}
+            style={{ color: "#1a1a1a", textDecoration: 'none' }}
           >
             <Stack direction="row" spacing={1} alignItems="center">
               <network.icon />
@@ -60,7 +60,6 @@ function Sidebar(props) {
             </Stack>
           </Link>
         ))}
-
       </Grid>
     </Container>
   );
