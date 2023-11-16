@@ -12,10 +12,10 @@ function Copyright() {
       {' © '}
       {new Date().getFullYear()}
       {'  '}
-      <Link sx={{fontWeight: "bold"}} color="inherit" href="https://mui.com/" style={{ textDecoration: 'none' }}>
-        F4SANT 
-        </Link>{'  '}
-        All Rights Reserved.
+      <Link sx={{ fontWeight: "bold" }} color="inherit" href="https://mui.com/" style={{ textDecoration: 'none' }}>
+        F4SANT
+      </Link>{'  '}
+      All Rights Reserved.
     </Typography>
   );
 }
@@ -25,32 +25,26 @@ const defaultTheme = createTheme();
 
 export default function Footer() {
   return (
-    <ThemeProvider  theme={defaultTheme}>
-      <CssBaseline />
-      
-      <Container  component="fdoter" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
-      </Container>
-      <Box
-        className='footer'
-        component="footer"
-        sx={{
-          py: 3,
-          px: 2,
-          mt: 'auto',
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'light'
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography color="white" variant="body1">
-            Nakazuba
-          </Typography>
-          <Copyright />
-        </Container>
-      </Box>
+    <ThemeProvider theme={defaultTheme}>
 
+        <CssBaseline />
+
+        <Box
+          component="footer"
+          sx={{
+            py: 3,
+            px: 2,
+            mt: 'auto',
+            backgroundColor: "#1a1a1a"
+          }}
+        >
+          <Container maxWidth="sm">
+            <Typography sx={{color: "aliceblue"}} variant="body1">
+Nakazuba
+            </Typography>
+            <Copyright />
+          </Container>
+      </Box>
     </ThemeProvider>
   );
 }

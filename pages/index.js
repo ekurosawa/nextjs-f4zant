@@ -33,7 +33,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 const posts = ['   '];
 
 const sections = [
-  
+
   { title: 'Design', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
@@ -65,12 +65,12 @@ export default function Home({ allPostsData }) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Container fixed style={{ backgroundColor: "#3d3d3d"}}>
-      <link rel="icon" href='/images/nakazuba40white.png' />
+      <Container fixed style={{ backgroundColor: "#3d3d3d" }}>
+        <link rel="icon" href='/images/nakazuba40white.png' />
 
-      <Header></Header>
+        <Header></Header>
 
-      <Main></Main>
+        <Main></Main>
         {/*<MainFeaturedPost post={mainFeaturedPost} />*/}
         {/*<Grid container spacing={5} sx={{ mt: 3}}>
           {featuredPosts.map((post) => (
@@ -78,19 +78,18 @@ export default function Home({ allPostsData }) {
             ))}
           </Grid>*/}
         <Grid container spacing={5} sx={{ mt: 3 }}>
-          <Container>
+          <Container maxWidth="lg">
             <Typography
               component="h1"
               variant="h4"
               align="center"
               sx={{ color: "aliceblue" }}
-              >
+            >
               Articles
             </Typography>
             <Grid
               container spacing={4}
             >
-
               {allPostsData.map(({ id, date, title, writer, thumbNa }, card, index) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card
@@ -116,35 +115,29 @@ export default function Home({ allPostsData }) {
                           {writer}
                         </Typography>
                       </Box>
-                        {/*be{bull}nev{bull}o{bull}lent*/}
-                        <Link 
-                          style={{ color: "#333333" }}
-                          href={`/posts/${id}`} color="inherit">
-                          {title}
-                        </Link>
-                        <br />
+                      {/*be{bull}nev{bull}o{bull}lent*/}
+                      <Link
+                        style={{ color: "#333333" }}
+                        href={`/posts/${id}`} color="inherit">
+                        {title}
+                      </Link>
                     </CardContent>
                   </Card>
                 </Grid>
               ))}
             </Grid>
-
-
           </Container>
-
         </Grid>
-
-      <Sidebar
-        title={sidebar.title}
-        description={sidebar.description}
-        archives={sidebar.archives}
-        social={sidebar.social}
-      />
-
-</Container>
+        <Sidebar
+          title={sidebar.title}
+          description={sidebar.description}
+          archives={sidebar.archives}
+          social={sidebar.social}
+        />
+      </Container>
 
       <Footer></Footer>
-      
+
     </ThemeProvider>
   );
 }

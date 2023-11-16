@@ -64,9 +64,9 @@ const darkTheme = createTheme();
 export default function writers() {
 
     return (
-            <ThemeProvider theme={darkTheme}>
-                <CssBaseline />
-                <Container fixed style={{ backgroundColor: "#3d3d3d"}}>
+        <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <Container fixed style={{ backgroundColor: "#3d3d3d" }}>
                 <link rel="icon" href='/images/nakazuba40white.png' />
 
                 <Header >
@@ -75,61 +75,55 @@ export default function writers() {
 
                 <Main></Main>
 
-                    <Grid container spacing={5} sx={{ mt: 3 }}>
-                        <Container maxWidth="lg">
-                            <Typography
-                                component="h1"
-                                variant="h4"
-                                align="center"
-                                color="text.primary"
-                                gutterBottom
-                                sx={{ color: "aliceblue" }}
-                                >
-                                Writers
-                            </Typography >
-                            <Grid
-                                container spacing={4} // containe spacing : アイテム幅の調整
-                            >
-
-                                {writerData.map(({ wart, wname, intro }, index) => (
-                                    <Grid item key={index} xs={12} sm={6} md={4}>
-                                        <Card
-                                            className='card'
-                                            py={3} sx={{ display: 'flex', flexDirection: 'column' }} >
-                                            <CardContent sx={{ flex: '10 auto' }} >
-                                                <Box display="flex">
-                                                    <CardMedia
-                                                        component="img"
-                                                        sx={{ width: 151 }}
-                                                        image={wart}
-                                                        alt="writer art"
-                                                    />
-                                                    <Box px={2} color='inherit'>
-
-                                                        <Typography color="black" fontFamily="sans-serif" fontWeight="Bold" >
-                                                            {wname}
+                <Grid container item spacing={5} sx={{ mt: 3, py: 6 }}>
+                    <Container maxWidth="lg">
+                        <Typography
+                            component="h1"
+                            variant="h4"
+                            align="center"
+                            sx={{ color: "aliceblue" }}
+                        >
+                            Writers
+                        </Typography >
+                        <Grid
+                            container spacing={4} // containe spacing : アイテム幅の調整
+                        >
+                            {writerData.map(({ wart, wname, intro }, index) => (
+                                <Grid item key={index} xs={12} sm={6} md={6}>
+                                    <Card
+                                        style={{ color: "aliceblue" }}
+                                        sx={{ display: 'flex', flexDirection: 'column' }} >
+                                        <CardContent sx={{ flex: '10 auto' }} >
+                                            <Box display="flex">
+                                                <CardMedia
+                                                    component="img"
+                                                    sx={{ width: 151 }}
+                                                    image={wart}
+                                                    alt="writer art"
+                                                />
+                                                <Box px={2} color='inherit'>
+                                                    <Typography color="black" fontFamily="sans-serif" fontWeight="Bold" >
+                                                        {wname}
+                                                    </Typography>
+                                                    <Box display="flex" justifyContent="flex-start">
+                                                        <Typography color="black" sx={{ whiteSpace: 'pre-line' }} fontSize={11} >
+                                                            {intro}
                                                         </Typography>
-
-                                                        <Box display="flex" justifyContent="flex-start">
-                                                            <Typography color="black" sx={{ whiteSpace: 'pre-line' }} fontSize={11} >
-                                                                {intro}
-                                                            </Typography>
-                                                        </Box>
                                                     </Box>
                                                 </Box>
-                                            </CardContent>
-                                        </Card>
-                                    </Grid>
-                                ))}
-                            </Grid>
-                        </Container>
-
-                    </Grid>
+                                            </Box>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            ))}
+                        </Grid>
                     </Container>
+                </Grid>
+            </Container>
 
-                <Footer></Footer>
+            <Footer></Footer>
 
-            </ThemeProvider>
+        </ThemeProvider>
     );
 }
 
