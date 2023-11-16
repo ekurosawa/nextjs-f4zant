@@ -13,7 +13,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {'  '}
       <Link sx={{ fontWeight: "bold" }} color="inherit" href="https://mui.com/" style={{ textDecoration: 'none' }}>
-        F4zant
+        F4ZANT
       </Link>{'  '}
       All Rights Reserved.
     </Typography>
