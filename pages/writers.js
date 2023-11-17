@@ -9,7 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from "@mui/material/CssBaseline";
@@ -33,30 +33,34 @@ const writerData = [
     {
         wart: '/images/itiroshirota.png',
         wname: '白田 一郎',
-        intro: '管理'
+        wnameen: 'Shirota Ichiro',
+        intro: '管理, 運営'
     },
     {
         wart: '/images/nakazuba640.png',
         wname: '柿本 建',
+        wnameen: 'Kakimoto Ken',
         intro: `管理, エンジニア`
     },
     {
         wart: '/images/flowerncafe.png',
         wname: '英 世志香',
+        wnameen: 'Hanabusa Yoshika',
         intro: '事務, デザイナー'
     },
     {
         wart: '/images/hitoriTravel.png',
         wname: '乾 洋典',
-        intro: '事務'
+        wnameen: 'Inui Hironori',
+        intro: '事務, 企画'
     },
     {
         wart: '/images/ekurosawa.png',
         wname: '黒澤 愛理',
-        intro: '事務'
+        wnameen: 'Kurosawa Eri',
+        intro: '事務, エンジニア'
     },
 ];
-
 
 
 const darkTheme = createTheme();
@@ -66,7 +70,7 @@ export default function writers() {
     return (
         <ThemeProvider theme={darkTheme}>
             <CssBaseline />
-            
+
             <Container fixed style={{ backgroundColor: "aliceblue", minHeight: "100vh" }}>
                 <link rel="icon" href='/images/nakazuba40white.png' />
 
@@ -74,45 +78,51 @@ export default function writers() {
 
                 <Main></Main>
 
-                <Grid container item spacing={5} sx={{ mt: 2 }}>
+                <Grid container item spacing={5} sx={{ mt: 2, mb: 0, pb: 1 }}>
                     <Container maxWidth="lg">
                         <Typography
                             component="h1"
                             variant="h4"
                             align="center"
-                            sx={{ color: "#1a1a1a", mb: 1 }}
+                            sx={{ color: "#1a1a1a" }}
                         >
-                            Writers
+                            メンバー
                         </Typography >
                         <Grid
-                            container spacing={4} // containe spacing : アイテム幅の調整
+                            container sx={{ mb: 1 }} spacing={4} // containe spacing : アイテム幅の調整
                         >
-                            {writerData.map(({ wart, wname, intro }, index) => (
-                                <Grid item key={index} xs={12} sm={6} md={6}>
-                                    <Card
-                                        style={{ color: "aliceblue" }}
-                                        sx={{ display: 'flex', flexDirection: 'column' }} >
-                                        <CardContent sx={{ flex: '10 auto' }} >
-                                            <Box display="flex">
-                                                <CardMedia
-                                                    component="img"
-                                                    sx={{ width: 151 }}
-                                                    image={wart}
-                                                    alt="writer art"
-                                                />
-                                                <Box px={2} color='inherit'>
-                                                    <Typography color="#1a1a1a" fontFamily="sans-serif" fontWeight="Bold" >
-                                                        {wname}
-                                                    </Typography>
-                                                    <Box display="flex" justifyContent="flex-start">
-                                                        <Typography color="#1a1a1a" sx={{ whiteSpace: 'pre-line' }} fontSize={11} >
-                                                            {intro}
+                            {writerData.map(({ wart, wname, intro, wnameen }, index) => (
+                                <Grid item key={index} xs={12} sm={12} md={6}>
+                                        <Card
+                                            component="a"
+                                            href="#"
+                                            style={{ color: "aliceblue" }}
+                                            sx={{ display: 'flex', flexDirection: 'column' }} >
+                                            <CardContent sx={{ flex: '10 auto' }} >
+                                                <Box display="flex">
+                                                    <CardMedia
+                                                        component="img"
+                                                        sx={{ width: 151 }}
+                                                        image={wart}
+                                                        alt="writer art"
+                                                    />
+                                                    <Box px={2} sx={{ pt: 1 }} color='inherit'>
+                                                        <Typography color="#1a1a1a" fontSize={17} fontWeight="Bold"  >
+                                                            {wname}
+                                                        </Typography >
+                                                        <Typography color="#1a1a1a" fontSize={11} sx={{ pb: 4 }}>
+                                                            {wnameen}
                                                         </Typography>
+                                                        <Box display="flex" justifyContent="flex-start">
+                                                            <Typography color="#1a1a1a" fontSize={13} sx={{ whiteSpace: 'pre-line' }}  >
+                                                                {intro}
+                                                            </Typography>
+                                                        </Box>
                                                     </Box>
                                                 </Box>
-                                            </Box>
-                                        </CardContent>
-                                    </Card>
+                                            </CardContent>
+                                        </Card>
+                                        
                                 </Grid>
                             ))}
                         </Grid>
@@ -148,12 +158,5 @@ export async function getStaticProps() {
     };
 }
 
-
-
-{/*<Typography variant="body2" color="text.secondary">
-                  well meaning and kindly.
-                  <br />
-                  {'"a benevolent smile"'}
-                  </Typography>*/}
 
 
