@@ -28,8 +28,13 @@ import Footer from '../pageparts/Footer';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { createAbstractBuilder } from 'typescript';
 
+import { Noto_Sans_JP } from "next/font/google";
+
+const NSJ = Noto_Sans_JP({
+  weight: "400",
+  subsets: ["latin"],
+})
 
 const posts = ['   '];
 
@@ -77,40 +82,37 @@ export default function Home({ allPostsData }) {
         <Header></Header>
 
         <Main></Main>
-        {/*<MainFeaturedPost post={mainFeaturedPost} />*/}
-        {/*<Grid container spacing={5} sx={{ mt: 3}}>
-          {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>*/}
+
         <Grid container spacing={5} sx={{ mt: 2 }}>
           <Container maxWidth="lg">
+            <Box >
             <Typography
+            className={NSJ.className}
               component="h1"
               variant="h4"
               align="center"
               sx={{ color: "#1a1a1a", mb: 1 }}
-
             >
-              Articles
+              記事一覧
             </Typography>
+            </Box>
             <Grid
               container spacing={4}
             >
               {allPostsData.map(({ id, date, title, writer, thumbNa }, card, index) => (
-                <Grid item key={card} xs={6} sm={6} md={4}>
+                <Grid item key={card} xs={12} sm={6} md={4}>
 
                   <Card
                     component="a"
-                    href="#"
+                    href={`/posts/${id}`}
                     style={{ backgroundColor: "#ffeeff" }}
                     sx={{ aspectRatio: 1 / 1, display: 'flex', flexDirection: 'column' }}
                   >
                     <CardMedia
                       component="div"
                       sx={{
-                        // 16:9
-                        pt: '56.25%',
+                        // 16:9 4:3
+                        pt: '75%',
                         backgroundColor: "#FFFFFF"
                       }}
                       image={thumbNa}
@@ -126,7 +128,7 @@ export default function Home({ allPostsData }) {
                           {writer}
                         </Typography>
                       </Box>
-                        <Typography sx={{ fontSizeAdjust: 0.56, color: "#1a1a1a", textDecoration: 'none' }} color="text.secondary">
+                        <Typography sx={{ fontSizeAdjust: 0.56, color: "#1a1a1a", textDecoration: 'none' }} color="text.secondary" className={NSJ.className}>
                           {title}
                         </Typography>
                     </CardContent>

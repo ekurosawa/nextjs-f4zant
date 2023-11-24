@@ -84,8 +84,11 @@ export default function Post({ postData }) {
           <Typography py={1} sx={{ fontSize: 16, textAlign: "right" }} color="text.secondary" >
             {postData.writer}
           </Typography>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+           <div className={ `${ postData.direction }` }
+           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+           />
         </Box>
+        <Box sx={{height: "15vh"}}></Box>
       </Container>
 
       <Footer></Footer>
